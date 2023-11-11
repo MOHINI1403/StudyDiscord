@@ -14,3 +14,6 @@ from django.core.wsgi import get_wsgi_application
 os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'studyDiscord.settings')
 
 application = get_wsgi_application()
+
+
+app=application #This is because we want to bridge the gap 
