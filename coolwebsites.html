@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IT=edge">
+
+        <title>Portfolio</title>
+
+        <meta name="viewport" content="width=device-width,initial-scale=1">
+    </head>
+    <body>
+        <h1>This is my Portfolio website </h1>
+        <h4>Subjects I studied Till Now ...</h4>
+        <ul>
+            <li>
+                Python
+            </li>
+            <li>
+                Django
+            </li>
+            <li>
+                Rest Framework
+            </li>
+        </ul>
+        <div id="room-container">
+
+        </div>
+    </body>
+    <script>
+        let roomsContainer=document.getElementById('room-container')
+
+        const getRooms= async ()=>{
+            let response=await fetch('http://127.0.0.1:8000/api/rooms/')
+            let rooms=await response.json()
+            for(let i=0;i<rooms.length;i++){
+                let room=rooms[i];
+                let row=`<div>
+                            <h3>${room.name}</h3>
+                        </div>`
+
+                roomsContainer.innerHTML += row
+                
+            }
+        }
+        getRooms()
+    </script>
+</html>
